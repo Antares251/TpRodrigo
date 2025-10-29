@@ -1,0 +1,183 @@
+
+:root {
+    
+    --alkali-metal: #ff6961;             
+    --alkaline-earth-metal: #ffb480;    
+    --lanthanide: #f8f38d;              
+    --actinide: #c1f88d;                
+    --transition-metal: #80ced6;        
+    --post-transition-metal: #d5aaff;   
+    --metalloid: #ffaaa5;               
+    --nonmetal: #a2d2ff;              
+    --noble-gas: #b28dff;               
+    --unknown: #e0e0e0;                
+    --hydrogen: #e6e6e6;                 
+
+    --base-font-color: #333;
+    --tooltip-bg: #333;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    /* Centrado vertical y horizontal */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+    margin: 0;
+    overflow-x: auto; 
+}
+
+
+.periodic-table-container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding-top: 50px;
+    max-width: 100%; 
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: var(--base-font-color);
+}
+
+
+.periodic-table {
+    display: grid;
+    grid-template-columns: repeat(18, 55px);
+    grid-template-rows: repeat(10, 55px);
+    gap: 4px; 
+    margin: 0 auto;
+}
+.element {
+    position: relative;
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    color: var(--base-font-color);
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-around; 
+    align-items: center;
+}
+
+.element:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    z-index: 10;
+}
+.element:not(.hydrogen) {
+    color: var(--base-font-color);
+  
+}
+.atomic-number {
+    font-size: 8px;
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    font-weight: normal;
+}
+
+.symbol {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.name {
+    font-size: 7px;
+    line-height: 1.1;
+    text-transform: capitalize;
+}
+
+.mass {
+    font-size: 7px;
+    line-height: 1.1;
+}
+.tooltip {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    background-color: var(--tooltip-bg);
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    width: 280px; 
+    z-index: 20;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    text-align: left;
+    font-size: 13px;
+    top: 0;
+    left: 105%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.7);
+}
+
+.tooltip p {
+    margin: 3px 0;
+    line-height: 1.4;
+}
+
+.element:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 120px;
+    background-color: #555;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-size: contain; 
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: #ccc; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+}
+
+.periodic-table > div[style*="grid-column: 16"] .tooltip,
+.periodic-table > div[style*="grid-column: 17"] .tooltip,
+.periodic-table > div[style*="grid-column: 18"] .tooltip {
+    left: auto;
+    right: 105%;
+}
+
+.periodic-table > div[style*="grid-row: 9"] .tooltip,
+.periodic-table > div[style*="grid-row: 10"] .tooltip {
+    top: auto;
+    bottom: 105%;
+}
+
+.hydrogen { background-color: var(--hydrogen); }
+.group-1 { background-color: var(--alkali-metal); }
+.group-2 { background-color: var(--alkaline-earth-metal); }
+
+.group-3, .group-4, .group-5, .group-6, .group-7, .group-8, .group-9, .group-10, .group-11, .group-12 { 
+    background-color: var(--transition-metal); 
+}
+
+.group-13 { background-color: var(--post-transition-metal); }
+.group-14 { background-color: var(--metalloid); }
+.group-15 { background-color: var(--nonmetal); }
+.group-16 { background-color: var(--nonmetal); }
+.group-17 { background-color: var(--nonmetal); }
+.group-18 { background-color: var(--noble-gas); }
+
+
+.lanthanide { background-color: var(--lanthanide); }
+.actinide { background-color: var(--actinide); }
+.unknown { background-color: var(--unknown); }
