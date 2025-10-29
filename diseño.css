@@ -1,36 +1,31 @@
-
 :root {
-    
-    --alkali-metal: #ff6961;             
-    --alkaline-earth-metal: #ffb480;    
-    --lanthanide: #f8f38d;              
-    --actinide: #c1f88d;                
-    --transition-metal: #80ced6;        
-    --post-transition-metal: #d5aaff;   
-    --metalloid: #ffaaa5;               
-    --nonmetal: #a2d2ff;              
-    --noble-gas: #b28dff;               
-    --unknown: #e0e0e0;                
-    --hydrogen: #e6e6e6;                 
+    --alkali-metal: #ff6961;
+    --alkaline-earth-metal: #ffb480;
+    --lanthanide: #f8f38d;
+    --actinide: #c1f88d;
+    --transition-metal: #80ced6;
+    --post-transition-metal: #d5aaff;
+    --metalloid: #ffaaa5;
+    --nonmetal: #a2d2ff;
+    --noble-gas: #b28dff;
+    --unknown: #e0e0e0;
+    --hydrogen: #e6e6e6;
 
     --base-font-color: #333;
     --tooltip-bg: #333;
 }
 
-
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Inter", Arial, sans-serif;
     background-color: #f0f0f0;
-    /* Centrado vertical y horizontal */
     display: flex;
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
     padding: 20px;
     margin: 0;
-    overflow-x: auto; 
+    overflow-x: hidden;
 }
-
 
 .periodic-table-container {
     text-align: center;
@@ -39,7 +34,8 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     padding-top: 50px;
-    max-width: 100%; 
+    width: 100%;
+    max-width: 1200px;
 }
 
 h1 {
@@ -47,26 +43,27 @@ h1 {
     color: var(--base-font-color);
 }
 
-
 .periodic-table {
     display: grid;
-    grid-template-columns: repeat(18, 55px);
-    grid-template-rows: repeat(10, 55px);
-    gap: 4px; 
+    grid-template-columns: repeat(18, minmax(40px, 1fr));
+    grid-auto-rows: minmax(45px, auto);
+    gap: 4px;
+    justify-content: center;
     margin: 0 auto;
 }
+
 .element {
     position: relative;
     padding: 2px;
     border: 1px solid #ccc;
     border-radius: 5px;
     text-align: center;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: help;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     color: var(--base-font-color);
-    display: flex; 
+    display: flex;
     flex-direction: column;
-    justify-content: space-around; 
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -75,10 +72,7 @@ h1 {
     box-shadow: 0 0 10px rgba(0,0,0,0.4);
     z-index: 10;
 }
-.element:not(.hydrogen) {
-    color: var(--base-font-color);
-  
-}
+
 .atomic-number {
     font-size: 8px;
     position: absolute;
@@ -88,21 +82,17 @@ h1 {
 }
 
 .symbol {
-    font-size: 20px;
+    font-size: clamp(12px, 2vw, 20px);
     font-weight: bold;
     margin-top: 5px;
 }
 
-.name {
-    font-size: 7px;
+.name, .mass {
+    font-size: clamp(6px, 1vw, 9px);
     line-height: 1.1;
     text-transform: capitalize;
 }
 
-.mass {
-    font-size: 7px;
-    line-height: 1.1;
-}
 .tooltip {
     visibility: hidden;
     opacity: 0;
@@ -111,9 +101,9 @@ h1 {
     color: #fff;
     padding: 15px;
     border-radius: 8px;
-    width: 280px; 
+    width: 260px;
     z-index: 20;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s ease;
     pointer-events: none;
     text-align: left;
     font-size: 13px;
@@ -132,22 +122,6 @@ h1 {
     opacity: 1;
 }
 
-.image-placeholder {
-    width: 100%;
-    height: 120px;
-    background-color: #555;
-    margin-top: 10px;
-    border-radius: 5px;
-    background-size: contain; 
-    background-position: center;
-    background-repeat: no-repeat;
-
-    color: #ccc; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 10px;
-}
 
 .periodic-table > div[style*="grid-column: 16"] .tooltip,
 .periodic-table > div[style*="grid-column: 17"] .tooltip,
@@ -165,19 +139,45 @@ h1 {
 .hydrogen { background-color: var(--hydrogen); }
 .group-1 { background-color: var(--alkali-metal); }
 .group-2 { background-color: var(--alkaline-earth-metal); }
-
-.group-3, .group-4, .group-5, .group-6, .group-7, .group-8, .group-9, .group-10, .group-11, .group-12 { 
-    background-color: var(--transition-metal); 
+.group-3, .group-4, .group-5, .group-6, .group-7, .group-8, .group-9, .group-10, .group-11, .group-12 {
+    background-color: var(--transition-metal);
 }
-
 .group-13 { background-color: var(--post-transition-metal); }
 .group-14 { background-color: var(--metalloid); }
-.group-15 { background-color: var(--nonmetal); }
-.group-16 { background-color: var(--nonmetal); }
-.group-17 { background-color: var(--nonmetal); }
+.group-15, .group-16, .group-17 { background-color: var(--nonmetal); }
 .group-18 { background-color: var(--noble-gas); }
-
-
 .lanthanide { background-color: var(--lanthanide); }
 .actinide { background-color: var(--actinide); }
 .unknown { background-color: var(--unknown); }
+
+
+@media (max-width: 1024px) {
+    .periodic-table {
+        grid-template-columns: repeat(12, minmax(35px, 1fr));
+    }
+    .tooltip {
+        width: 220px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .periodic-table {
+        grid-template-columns: repeat(9, minmax(35px, 1fr));
+    }
+    .element {
+        border-radius: 4px;
+    }
+    .tooltip {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .periodic-table {
+        grid-template-columns: repeat(6, minmax(35px, 1fr));
+    }
+    .symbol {
+        font-size: 14px;
+    }
+}
