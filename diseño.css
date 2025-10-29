@@ -1,4 +1,3 @@
-
 :root {
     
     --alkali-metal: #ff6961;             
@@ -17,18 +16,29 @@
     --tooltip-bg: #333;
 }
 
+/* --- CAMBIO --- 
+ * Añadimos un reseteo básico y box-sizing 
+ * para que los anchos y paddings se comporten predeciblemente.
+ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
-    /* Centrado vertical y horizontal */
     display: flex;
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
     padding: 20px;
-    margin: 0;
-    overflow-x: auto; 
+    /* --- CAMBIO --- 
+     * Quitamos el overflow-x del body. 
+     * El scroll debe estar en el contenedor de la tabla, no en toda la página.
+     */
 }
 
 
@@ -38,23 +48,48 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    padding-top: 50px;
     max-width: 100%; 
+    
+    /* --- CAMBIO CLAVE --- 
+     * Esta es la corrección principal.
+     * Permite que el contenido (la tabla) que se desborde 
+     * lo haga con un scroll horizontal DENTRO de este contenedor.
+     */
+    overflow-x: auto;
 }
 
 h1 {
     margin-bottom: 20px;
     color: var(--base-font-color);
+    /* --- CAMBIO --- 
+     * Hacemos el título responsive usando clamp().
+     * (Tamaño mínimo, tamaño ideal, tamaño máximo)
+     */
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
 }
 
 
 .periodic-table {
     display: grid;
-    grid-template-columns: repeat(18, 55px);
-    grid-template-rows: repeat(10, 55px);
-    gap: 4px; 
+    /* --- CAMBIO --- 
+     * Usamos clamp() para las celdas.
+     * Permitimos que crezcan y se encojan un poco,
+     * pero nunca menos de 48px ni más de 55px.
+     */
+    grid-template-columns: repeat(18, clamp(48px, 4.5vw, 55px));
+    grid-template-rows: repeat(10, clamp(48px, 4.5vw, 55px));
+    gap: clamp(2px, 0.5vw, 4px); /* Gap también responsive */
     margin: 0 auto;
+    
+    /* --- CAMBIO --- 
+     * Establecemos un ancho mínimo para la tabla.
+     * (18 celdas * 48px min) + (17 gaps * 2px min) = 864 + 34 = 898px
+     * Esto FUERZA al .periodic-table-container a mostrar el scroll
+     * en pantallas más pequeñas que 898px.
+     */
+    min-width: 900px;
 }
+
 .element {
     position: relative;
     padding: 2px;
@@ -68,6 +103,11 @@ h1 {
     flex-direction: column;
     justify-content: space-around; 
     align-items: center;
+    
+    /* --- CAMBIO --- 
+     * Evita que el texto se seleccione al hacer clic rápido
+     */
+    user-select: none;
 }
 
 .element:hover {
@@ -79,30 +119,38 @@ h1 {
     color: var(--base-font-color);
   
 }
+
+/* --- CAMBIO --- 
+ * Hacemos todas las fuentes dentro de las celdas
+ * responsives usando clamp() para que se escalen
+ * con el tamaño de la ventana/celda.
+ */
+
 .atomic-number {
-    font-size: 8px;
+    font-size: clamp(8px, 1.5vw, 10px);
     position: absolute;
-    top: 2px;
-    left: 4px;
+    top: 3px;
+    left: 3px;
     font-weight: normal;
 }
 
 .symbol {
-    font-size: 20px;
+    font-size: clamp(16px, 3vw, 20px);
     font-weight: bold;
-    margin-top: 5px;
+    /* margin-top: 5px; <- Eliminado, dejamos que flexbox centre */
 }
 
 .name {
-    font-size: 7px;
+    font-size: clamp(7px, 1.4vw, 9px);
     line-height: 1.1;
     text-transform: capitalize;
 }
 
 .mass {
-    font-size: 7px;
+    font-size: clamp(7px, 1.4vw, 9px);
     line-height: 1.1;
 }
+
 .tooltip {
     visibility: hidden;
     opacity: 0;
@@ -111,12 +159,20 @@ h1 {
     color: #fff;
     padding: 15px;
     border-radius: 8px;
+    
+    /* --- CAMBIO --- 
+     * Hacemos el tooltip responsive.
+     * Tendrá un ancho de 280px, PERO nunca será más
+     * ancho que el 90% de la pantalla (viewport width).
+     */
     width: 280px; 
+    max-width: 90vw;
+    
     z-index: 20;
     transition: opacity 0.3s;
     pointer-events: none;
     text-align: left;
-    font-size: 13px;
+    font-size: 14px; /* Un poco más grande para legibilidad */
     top: 0;
     left: 105%;
     box-shadow: 0 5px 15px rgba(0,0,0,0.7);
@@ -134,7 +190,7 @@ h1 {
 
 .image-placeholder {
     width: 100%;
-    height: 120px;
+    height: 120px; /* Mantenemos altura fija para consistencia */
     background-color: #555;
     margin-top: 10px;
     border-radius: 5px;
@@ -149,6 +205,9 @@ h1 {
     font-size: 10px;
 }
 
+/* * Estas reglas para reposicionar el tooltip
+ * están bien y no necesitan cambios.
+ */
 .periodic-table > div[style*="grid-column: 16"] .tooltip,
 .periodic-table > div[style*="grid-column: 17"] .tooltip,
 .periodic-table > div[style*="grid-column: 18"] .tooltip {
