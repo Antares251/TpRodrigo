@@ -159,6 +159,9 @@ h1 {
         width: 220px;
         font-size: 12px;
     }
+    body{
+        background-color: #9cdeff;
+    }
 }
 
 @media (max-width: 768px) {
