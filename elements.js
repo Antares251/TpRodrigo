@@ -71,7 +71,7 @@ const elementsData = [
     },
     {
         number: 13, symbol: "Al", name: "Aluminio", mass: 26.982, row: 3, column: 13,
-        category: "metal-post-transicion", type: "Otro metal", state: "Sólido",
+        category: "metal-post-transicion", type: "Metal post-transicion", state: "Sólido",
         image: "https://th.bing.com/th/id/OIP.u2JvODsA8w-eTIT5E1ndhgHaEc?w=269&h=180&c=7&r=0&o=7&dpr=1.4&pid=1.7&rm=3"
     },
     {
@@ -162,7 +162,7 @@ const elementsData = [
     },
     {
         number: 31, symbol: "Ga", name: "Galio", mass: 69.723, row: 4, column: 13,
-        category: "metal-post-transicion", type: "Otro metal", state: "Sólido",
+        category: "metal-post-transicion", type: "Metal post-transicion", state: "Sólido",
         image: "https://th.bing.com/th/id/OIP.e0eHsHz6gatqcGgR5-UpVAHaE8?w=284&h=189&c=7&r=0&o=7&dpr=1.4&pid=1.7&rm=3"
     },
     {
@@ -253,12 +253,12 @@ const elementsData = [
     },
     {
         number: 49, symbol: "In", name: "Indio", mass: 114.82, row: 5, column: 13,
-        category: "metal-post-transicion", type: "Otro metal", state: "Sólido",
+        category: "metal-post-transicion", type: "Metal post-transicion", state: "Sólido",
         image: "https://th.bing.com/th/id/OIP.TTZrxj5oi-2wo7M9pTgZggHaEO?w=297&h=180&c=7&r=0&o=7&dpr=1.4&pid=1.7&rm=3"
     },
     {
         number: 50, symbol: "Sn", name: "Estaño", mass: 118.71, row: 5, column: 14,
-        category: "metal-post-transicion", type: "Otro metal", state: "Sólido",
+        category: "metal-post-transicion", type: "Metal post-transicion", state: "Sólido",
         image: "https://th.bing.com/th/id/OIP.ZGny_azJapArYjfiUyGVxAHaE8?w=265&h=180&c=7&r=0&o=7&dpr=1.4&pid=1.7&rm=3"
     },
     {
@@ -428,17 +428,17 @@ const elementsData = [
     },
     {
         number: 81, symbol: "Tl", name: "Talio", mass: 204.38, row: 6, column: 13,
-        category: "metal-post-transicion", type: "Otro metal", state: "Sólido",
+        category: "metal-post-transicion", type: "Metal post-transicion", state: "Sólido",
         image: "https://th.bing.com/th/id/OIP.yv48epNQxsWNWoCwvS4scgHaDt?w=255&h=180&c=7&r=0&o=7&dpr=1.4&pid=1.7&rm=3"
     },
     {
         number: 82, symbol: "Pb", name: "Plomo", mass: 207.2, row: 6, column: 14,
-        category: "metal-post-transicion", type: "Otro metal", state: "Sólido",
+        category: "metal-post-transicion", type: "Metal post-transicion", state: "Sólido",
         image: "https://th.bing.com/th/id/OIP.bu8WTva6JyIWCKPKKBkp1AHaEK?w=331&h=186&c=7&r=0&o=7&dpr=1.4&pid=1.7&rm=3"
     },
     {
         number: 83, symbol: "Bi", name: "Bismuto", mass: 208.98, row: 6, column: 15,
-        category: "metal-post-transicion", type: "Otro metal", state: "Sólido",
+        category: "metal-post-transicion", type: "Metal post-transicion", state: "Sólido",
         image: "https://th.bing.com/th/id/OIP.r4xTgE0bh0fvvdwUpwpsfwHaE8?w=265&h=180&c=7&r=0&o=7&dpr=1.4&pid=1.7&rm=3"
     },
     {
@@ -603,22 +603,22 @@ const elementsData = [
     },
     {
         number: 113, symbol: "Nh", name: "Nihonio", mass: 286, row: 7, column: 13,
-        category: "metal-post-transicion", type: "Otro metal", state: "Sólido", // Previsto
+        category: "metal-post-transicion", type: "Metal post-transicion", state: "Sólido", // Previsto
         image: "https://th.bing.com/th/id/OIP.LUyrdeaYqHNAhgvKZFhrVgHaDw?w=323&h=177&c=7&r=0&o=7&dpr=1.1&pid=1.7&rm=3"
     },
     {
         number: 114, symbol: "Fl", name: "Flerovio", mass: 289, row: 7, column: 14,
-        category: "metal-post-transicion", type: "Otro metal", state: "Sólido", // Previsto
+        category: "metal-post-transicion", type: "Metal post-transicion", state: "Sólido", // Previsto
         image: "https://th.bing.com/th/id/OIP.w0s1uMKM8XIG9dH1_rKO7wHaE8?w=282&h=188&c=7&r=0&o=7&dpr=1.4&pid=1.7&rm=3"
     },
     {
         number: 115, symbol: "Mc", name: "Moscovio", mass: 290, row: 7, column: 15,
-        category: "metal-post-transicion", type: "Otro metal", state: "Sólido", // Previsto
+        category: "metal-post-transicion", type: "Metal post-transicion", state: "Sólido", // Previsto
         image: "https://tse1.mm.bing.net/th/id/OIP.9Fs4bO5Fq4lmaFDbC5zkuwHaHa?w=626&h=626&rs=1&pid=ImgDetMain&o=7&rm=3"
     },
     {
         number: 116, symbol: "Lv", name: "Livermorio", mass: 293, row: 7, column: 16,
-        category: "metal-post-transicion", type: "Otro metal", state: "Sólido", // Previsto
+        category: "metal-post-transicion", type: "Metal post-transicion", state: "Sólido", // Previsto
         image: "https://img.freepik.com/premium-vector/atomic-structure-livermorium-with-atomic-number-atomic-mass-energy-levels_842931-1068.jpg"
     },
     {
