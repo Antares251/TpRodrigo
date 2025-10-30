@@ -22,21 +22,22 @@ document.addEventListener('DOMContentLoaded', () => {
             elementDiv.style.gridColumn = element.column;
 
             // 4. Crear el contenido HTML interno usando los datos
-            const innerHTML = `
-                <div class="atomic-number">${element.number}</div>
-                <div class="symbol">${element.symbol}</div>
-                <div class="name">${element.name}</div>
-                <div class="mass">${element.mass}</div>
-                <div class="tooltip">
-                    <p><strong>Nombre:</strong> ${element.name}</p>
-                    <p><strong>Símbolo:</strong> ${element.symbol}</p>
-                    <p><strong>Número Atómico:</strong> ${element.number}</p>
-                    <p><strong>Masa Atómica:</strong> ${element.mass} u</p>
-                    <p><strong>Tipo:</strong> ${element.type}</p>
-                    <p><strong>Estado Físico:</strong> ${element.state}</p>
-                    <div class="image-placeholder" style="background-image: url('${element.image}');"></div>
-                </div>
-            `;
+// 4. Crear el contenido HTML interno usando los datos
+const innerHTML = `
+    <div class="atomic-number">${element.number}</div>
+    <div class="symbol">${element.symbol}</div>
+    <div class="name">${element.name}</div>
+    <div class="mass">${element.mass}</div>
+    <div class="tooltip">
+        <p><strong>Nombre:</strong> ${element.name}</p>
+        <p><strong>Símbolo:</strong> ${element.symbol}</p>
+        <p><strong>Número Atómico:</strong> ${element.number}</p>
+        <p><strong>Masa Atómica:</strong> ${element.mass} u</p>
+        <p><strong>Tipo:</strong> ${element.type}</p>
+        <p><strong>Estado Físico:</strong> ${element.state}</p>
+        <p><strong>Config. Electrónica:</strong> ${element.config}</p> <div class="image-placeholder" style="background-image: url('${element.image}');"></div>
+    </div>
+`;
 
             // 5. Asignar el HTML interno al 'div' del elemento
             elementDiv.innerHTML = innerHTML;
